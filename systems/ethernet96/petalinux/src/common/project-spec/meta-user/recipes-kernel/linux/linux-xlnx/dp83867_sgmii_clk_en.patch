@@ -1,6 +1,6 @@
 Opsero Electronic Design Inc. 2019
 Jeff Johnson
-DP83867 SGMII CLK enable patch 2019.2
+DP83867 SGMII CLK enable patch 2023.2
 =====================================
 This patch modifies the driver for DP83867 Gigabit Ethernet PHY so that it will accept
 one extra property:

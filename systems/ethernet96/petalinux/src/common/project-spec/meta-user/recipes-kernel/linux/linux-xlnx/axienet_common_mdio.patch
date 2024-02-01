@@ -1,6 +1,6 @@
 Opsero Electronic Design Inc. 2019
 Jeff Johnson
-AXI Ethernet Common MDIO patch 2019.2
+AXI Ethernet Common MDIO patch 2023.2
 =====================================
 This patch modifies the AXI Ethernet driver to handle an MDIO bus architecture of one (common)
 MAC connected to multiple PHYs. Without this patch, the AXI Ethernet driver tries to register

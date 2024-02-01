@@ -1,7 +1,7 @@
 -- This module provides the common synchronization and reset signaling
 -- logic and is closely based
 -- on the example provided by Xilinx as part of the gig_ethernet_pcs_pma
--- IP core part of Vivado 2019.2
+-- IP core part of Vivado 2023.2
 
 library ieee;
     use ieee.std_logic_1164.all;

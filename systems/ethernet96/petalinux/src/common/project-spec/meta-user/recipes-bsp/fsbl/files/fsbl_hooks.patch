@@ -1,6 +1,6 @@
 Opsero Electronic Design Inc. 2019
 Jeff Johnson
-ZynqMP FSBL hooks patch 2019.2
+ZynqMP FSBL hooks patch 2023.2
 ==============================
 This patch modifies the ZynqMP FSBL to add code to the XFsbl_HookBeforeHandoff which is
 executed before the FSBL hands over control to U-Boot. This code is necessary for 
