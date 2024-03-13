@@ -44,7 +44,7 @@ do
   echo "> CPU_TYPE: $cpu_type"
 
   # Create PetaLinux project if it does not exists
-  if [[ -z "${BSP_PATH}" ]]; then
+  if [[ -n "${BSP_PATH}" ]]; then
     if [ -d "./$proj" ]; then
       echo "> PetaLinux project already exists"
     else

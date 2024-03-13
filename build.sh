@@ -6,6 +6,12 @@ board_ver=2
 #1. Build IP core modules
 top_dir=`pwd`
 
+#make surte the bsp path has been set
+if ! [[ -n "${BSP_PATH}" ]]; then
+    echo "> No BSP_PATH environment variable set"
+    exit
+fi
+
 cd ${top_dir}/lib/hw/lsi/cores/traffic_generator
 vivado -mode batch -source traffic_generator.tcl
 
