@@ -41,13 +41,19 @@ fi
 
   echo "> CPU_TYPE: $cpu_type"
 
-  # Create PetaLinux project if it does not exists
-  if [ -d "./$proj" ]; then
-    echo "> PetaLinux project already exists"
+  if [[ -z "${BSP_PATH}" ]]; then
+    # Create PetaLinux project if it does not exists
+    if [ -d "./$proj" ]; then
+      echo "> PetaLinux project already exists"
+    else
+      echo "> Creating PetaLinux project"
+      petalinux-create --type project --template $cpu_type --name $proj
+    fi
   else
-    echo "> Creating PetaLinux project"
-    petalinux-create --type project --template $cpu_type --name $proj
+    echo "> No BSP_PATH enviroment variable set"
+    exit
   fi
+
 
   #Generate patches
   rm -rf a b

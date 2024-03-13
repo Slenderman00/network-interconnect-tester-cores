@@ -44,13 +44,17 @@ do
   echo "> CPU_TYPE: $cpu_type"
 
   # Create PetaLinux project if it does not exists
-  if [ -d "./$proj" ]; then
-    echo "> PetaLinux project already exists"
+  if [[ -z "${BSP_PATH}" ]]; then
+    if [ -d "./$proj" ]; then
+      echo "> PetaLinux project already exists"
+    else
+      echo "> Creating PetaLinux project"
+      petalinux-create --type project --template $cpu_type --name $proj -s ${BSP_PATH}
+    fi
   else
-    echo "> Creating PetaLinux project"
-    petalinux-create --type project --template $cpu_type --name $proj
+    echo "> No BSP_PATH enviroment variable set"
+    exit
   fi
-
   cd $proj
 
   # Configure PetaLinux project with hardware description if 'components' dir doesn't exist
