@@ -49,7 +49,7 @@ do
       echo "> PetaLinux project already exists"
     else
       echo "> Creating PetaLinux project"
-      petalinux-create --type project --template $cpu_type --name $proj -s ${BSP_PATH}
+      petalinux-create --type project --name $proj -s ${BSP_PATH}
     fi
   else
     echo "> No BSP_PATH enviroment variable set"
