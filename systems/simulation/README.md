@@ -31,10 +31,14 @@ Start a simulation in this directory with the [run.sh](run.sh) wrapper script th
 that accept register read and write accesses from user applications over socket and can run the simulation with the help
 of the sim-run and sim-finish commands:
 
+Install iverilog:
+```
+sudo apt-get install verilog
+```
+
 Install cocotbext-axi:
 ```
-git clone https://github.com/alexforencich/cocotbext-axi
-pip install -e cocotbext-axi
+pip install cocotbext-axi --break-system-packages
 ```
 
 ```
