@@ -38,7 +38,9 @@ sudo apt-get install verilog
 
 Install cocotbext-axi:
 ```
-pip install cocotbext-axi --break-system-packages
+python3 -m venv .venv
+source .venv/bin/activate
+pip install cocotbext-axi
 ```
 
 ```
