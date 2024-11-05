@@ -99,12 +99,19 @@ int main(int argc, char** argv)
     usleep(1000);
     ioreg_write(ioreg_id, REG_CONTROL_ADDR, 0x1); /* start */
 
+#ifdef SIMULATION
+     ioreg_close(ioreg_id);
+#endif
+
     while(1) {
         ret = getc(stdin);
         if(ret==EOF) {
             exit(0);
         }
-
+#ifdef SIMULATION
+        ioreg_id = ioreg_init(ioreg_init_arg);
+        assert(ioreg_id>=0);
+#endif
         ioreg_write(ioreg_id, REG_CONTROL_ADDR, 0x2|0x1); /* freeze status registers without stopping */
         ioreg_read(ioreg_id, REG_PKTS_ADDR, &msb);
         ioreg_read(ioreg_id, REG_PKTS_ADDR+4, &lsb);
@@ -158,7 +165,7 @@ int main(int argc, char** argv)
         "<bad-crc-octets>%llu</bad-crc-octets><bad-crc-pkts>%llu</bad-crc-pkts>"
         "<bad-preamble-octets>%llu</bad-preamble-octets><bad-preamble-pkts>%llu</bad-preamble-pkts>"
         "<octets-total>%llu</octets-total>"
-        "<testframe-stats><testframe-pkts>%llu</testframe-pkts><sequence-errors>%llu</sequence-errors>"
+        "<testframe-stats><pkts>%llu</pkts><sequence-errors>%llu</sequence-errors>"
         "<latency><samples>%llu</samples><min-sec>%llu</min-sec><min>%u</min><max-sec>%llu</max-sec><max>%u</max><last-sec>%llu</last-sec><last>%u</last></latency></testframe-stats>",
                 pkts,
                 octets,
@@ -204,5 +211,10 @@ int main(int argc, char** argv)
 
         fflush(stdout);
         ioreg_write(ioreg_id, REG_CONTROL_ADDR, 0x1); /* unfreeze status registers */
+
+#ifdef SIMULATION
+        ioreg_close(ioreg_id);
+#endif
+
     }
 }

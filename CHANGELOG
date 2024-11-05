@@ -1,3 +1,30 @@
+network-interconnect-tester-cores (0.52) stable; urgency=medium
+
+  * Partial implementation of changes introduced in draft-ietf-bmwg-network-tester-cfg-04. Testframe bitwise filter needs more work
+  * Reverted autoconf simulation lib/sw option to disabled by default
+
+ -- Vladimir Vassilev <vladimir@lightside-instruments.com>  Wed, 20 Mar 2024 15:05:45 +0100
+
+network-interconnect-tester-cores (0.51) stable; urgency=medium
+
+  * Updated and improved documentation. Now using Markdown for top level README
+
+ -- Vladimir Vassilev <vladimir@lightside-instruments.com>  Wed, 28 Feb 2024 16:06:34 +0100
+
+network-interconnect-tester-cores (0.50) stable; urgency=medium
+
+  * Added systems/simulation cocotb based RTL simulation of the design with socket based register io interface for pre-silicon validation of applications.
+
+ -- Vladimir Vassilev <vladimir@lightside-instruments.com>  Tue, 27 Feb 2024 22:01:04 +0100
+
+network-interconnect-tester-cores (0.49) stable; urgency=medium
+
+  * Corrected corrected_delta_pps default register value in the rtclock IP core
+  * Added identical cocotb Python benchmark template in adition to Verilog. flip_register.v and flip_register.py
+  * Removed AXI WSTR signals dependency from rtclock since cocotb seems to not drive the signals
+
+ -- Vladimir Vassilev <vladimir@lightside-instruments.com>  Wed, 21 Feb 2024 18:09:54 +0100
+
 network-interconnect-tester-cores (0.48) stable; urgency=medium
 
   * Dedicated pins added for the alternative frequencies ref_clk_10mhz_or_12mhz (D5) replaced with ref_clk_10mhz (D5.HDGC) and ref_clk_12mhz (D7.HDGC)
